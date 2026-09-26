@@ -1,0 +1,10 @@
+import duckdb
+con = duckdb.connect('data/analysis.duckdb', read_only=True)
+con.execute("SET memory_limit='700MB'; SET threads=2; SET temp_directory='data/duckdb_tmp'; SET preserve_insertion_order=false")
+q = lambda s: con.execute(s).fetchdf().to_string()
+print(q("select case_type, category, count(*) n, count(claimed) nclaim, round(median(claimed),2) med, count(affected_product_id) naff from cp group by 1,2 order by 1,3 desc"))
+print(q("select subcategory, count(*) from cp group by 1 order by 2 desc limit 30"))
+print(q("select currency, count(*), round(median(claimed),2), round(quantile_cont(claimed,0.9),2) from cp group by 1"))
+print(q("select description from cp using sample 8"))
+print(q("select round(claimed,2) c, count(*) from cp where claimed is not null group by 1 order by 2 desc limit 5"))
+print(q("select quantile_cont(claimed,[0,0.01,0.1,0.5,0.9,0.99,1]) from cp"))

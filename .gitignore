@@ -1,0 +1,25 @@
+# Entorno virtual
+.venv/
+
+# Datos del hackathon (acceso restringido: NUNCA se publican)
+data/
+*.csv
+*.parquet
+*.duckdb
+*.duckdb.wal
+*.tmp
+
+# Salidas intermedias de análisis (pueden contener filas individuales)
+analysis/**/*.json
+analysis/**/*.log
+analysis/pass3/hunt_cache/
+docs/*.json
+
+# Secretos
+.env
+.aws/
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

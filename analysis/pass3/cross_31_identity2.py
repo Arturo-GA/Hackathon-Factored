@@ -1,0 +1,16 @@
+# H24b: cuantos eventos anonimos se imputan por session_id; emails/telefonos compartidos entre clientes (mismo nombre? mismo pais?)
+import duckdb
+con = duckdb.connect('data/analysis.duckdb', read_only=True)
+con.execute("SET memory_limit='700MB'; SET threads=2; SET temp_directory='data/duckdb_tmp'; SET preserve_insertion_order=false")
+q = lambda s: con.execute(s).fetchdf().to_string()
+con.execute("""create temp table s as select session_id, max(customer_id) cid, sum((customer_id is null)::int) nanon, count(*) n from de where hash(session_id)%10=0 group by 1""")
+print(q("""select sum(nanon) anon_events, sum(nanon) filter (where cid is not null) imputable, round(sum(nanon) filter (where cid is not null)*1.0/sum(nanon),4) pct_imputable,
+   sum(n) total from s"""))
+print(q("""with s2 as (select * from s where cid is not null and nanon>0) select round(avg(nanon*1.0/n),3) anon_share_in_mixed from s2"""))
+con.execute("create temp table e as select email, count(*) k, count(distinct first_name||' '||last_name) nnames, count(distinct country) nctry, count(distinct last_name) nlast from cu group by 1 having count(*)>1")
+print(q("select count(*) emails, sum(k) cust, avg((nnames=1)::int) same_name, avg((nlast=1)::int) same_last, avg((nctry=1)::int) same_ctry, max(k) maxk from e"))
+print(q("select email, k, nnames from e order by k desc limit 5"))
+print(q("select split_part(email,'@',2) dom, count(*) from cu group by 1 order by 2 desc limit 6"))
+con.execute("create temp table ph as select mobile_phone, count(*) k, count(distinct country) nctry, count(distinct first_name||last_name) nn from cu group by 1 having count(*)>1")
+print(q("select count(*) phones, sum(k) cust, avg((nctry=1)::int) same_ctry, avg((nn=1)::int) same_name, max(k) from ph"))
+print(q("select mobile_phone, country from cu using sample 5"))

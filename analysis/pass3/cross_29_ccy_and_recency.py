@@ -1,0 +1,17 @@
+# H23: moneda de producto por pais del cliente; recencia de tx al momento del contacto (que encontrara la herramienta del LLM)
+import duckdb
+con = duckdb.connect('data/analysis.duckdb', read_only=True)
+con.execute("SET memory_limit='700MB'; SET threads=2; SET temp_directory='data/duckdb_tmp'; SET preserve_insertion_order=false")
+q = lambda s: con.execute(s).fetchdf().to_string()
+print(q("""select c.country, p.currency, count(*) n, round(count(*)*1.0/sum(count(*)) over (partition by c.country),4) shr from pr p join cu c using(customer_id) group by 1,2 order by 1,2"""))
+print(q("""select c.country, p.ptype, round(avg((p.currency='USD')::int),3) usd from pr p join cu c using(customer_id) where c.country<>'México' group by 1,2 order by 1,2"""))
+# recencia: para contactos, dias desde la ultima tx del cliente (asof)
+con.execute("create temp table c as select interaction_id, customer_id, ts, cat from cc where hash(customer_id)%4=0")
+con.execute("create temp table t as select customer_id, ts, status, fraud from tx where customer_id in (select customer_id from c)")
+con.execute("""create temp table j as select c.cat, date_diff('day', t.ts, c.ts) dd, t.status from c asof left join t on c.customer_id=t.customer_id and t.ts<=c.ts""")
+print(q("""select cat, count(*) n, round(avg((dd is null)::int),4) no_prev_tx, round(avg(coalesce(dd<=1,false)::int),4) le1d, round(avg(coalesce(dd<=7,false)::int),4) le7d, round(avg(coalesce(dd<=30,false)::int),4) le30d,
+   round(avg(coalesce(dd<=90,false)::int),4) le90d, median(dd) med_days from j group by rollup(cat) order by 1"""))
+con.execute("""create temp table j2 as select c.cat, date_diff('day', t.ts, c.ts) dd from c asof left join (select * from t where status='Declined') t on c.customer_id=t.customer_id and t.ts<=c.ts""")
+print(q("""select 'last_declined' k, count(*) n, round(avg((dd is null)::int),4) nada, round(avg(coalesce(dd<=7,false)::int),4) le7d, round(avg(coalesce(dd<=30,false)::int),4) le30d, round(avg(coalesce(dd<=90,false)::int),4) le90d, median(dd) med from j2"""))
+con.execute("""create temp table j3 as select c.cat, date_diff('day', t.ts, c.ts) dd from c asof left join (select * from t where fraud) t on c.customer_id=t.customer_id and t.ts<=c.ts""")
+print(q("""select 'last_fraud' k, count(*) n, round(avg((dd is null)::int),4) nada, round(avg(coalesce(dd<=7,false)::int),4) le7d, round(avg(coalesce(dd<=30,false)::int),4) le30d, round(avg(coalesce(dd<=90,false)::int),4) le90d from j3"""))
