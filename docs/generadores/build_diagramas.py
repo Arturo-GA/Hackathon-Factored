@@ -90,7 +90,7 @@ for x in (250, 480, 710, 940, 1170):
 
 # --- Modelos
 d.region(30, 450, 700, 130, "MODELOS  ·  entienden y redactan; sus salidas son datos, no órdenes", "#D85A30")
-d.box(50, 480, 320, 85, C, "Clasificador local (data scientist)", ["embeddings multilingües + regresión logística", "motivo (6+) · tipo de queja (5) · urgencia", "50 ms · costo 0 · devuelve probabilidad"], num=4)
+d.box(50, 480, 320, 85, C, "Clasificador local (Cristhian)", ["embeddings multilingües + regresión logística", "motivo (6+) · tipo de queja (5) · urgencia", "50 ms · costo 0 · devuelve probabilidad"], num=4)
 d.box(400, 480, 310, 85, C, "LLM · Claude Opus 5 (Bedrock)", ["extrae monto, fecha, comercio (salida estructurada)", "hace UNA pregunta si la confianza es media", "redacta en ES/PT con el tono del país · resume"], num=4)
 d.arrow([(380, 340), (210, 480)], "#D85A30", "texto del cliente")
 d.arrow([(400, 340), (555, 480)], "#D85A30", "solo si hace falta")

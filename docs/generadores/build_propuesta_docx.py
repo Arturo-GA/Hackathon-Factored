@@ -451,7 +451,7 @@ p("Diagrama de la arquitectura (morado decide, coral entiende y redacta, gris ej
 doc.add_picture(r"C:\Users\Arturo\Documents\Factored Hackathon\docs\arquitectura_expediente_vivo.png", width=Cm(15.5))
 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
 h("5.2 Nube: AWS como principal, Google Cloud como plan B", 2)
-rich(["Se elige ", ("AWS", "b"), " porque un integrante del equipo la domina (el despliegue deja de ser un riesgo), los organizadores la sugieren, y Claude está disponible en Bedrock sin cuenta aparte con Anthropic. "
+rich(["Se elige ", ("AWS", "b"), " porque Andrés la domina (el despliegue deja de ser un riesgo), los organizadores la sugieren, y Claude está disponible en Bedrock sin cuenta aparte con Anthropic. "
       "Las tablas gold ya publicadas en BigQuery se copian a S3 como Parquet (unos 500 MB) con un comando; el pipeline no cambia."])
 table(["Servicio AWS", "Uso", "Costo estimado demo (10 días + 2 semanas de jueces)", "Costo estimado operación (banco 150k clientes)"], [
     ["App Runner (o ECS Fargate)", "API FastAPI + front en un contenedor; escala a cero", "5–15 USD", "60–150 USD/mes"],
@@ -522,19 +522,19 @@ table(["Persona", "Perfil", "Rol en el proyecto", "Entregables"], [
     ["Arturo", "Coordinación, análisis de datos (pipeline y hallazgos ya hechos), trabaja con Claude Code",
      "Producto y backend conversacional (B): máquina de estados, reglas YAML, prompts y salida estructurada, modo juez; coordinación diaria; README, slides y video",
      "API conversacional funcionando, políticas probadas, guion de demo, entrega final"],
-    ["Data engineer (2 años, hoy con n8n)", "Ingeniería de datos; n8n como herramienta habitual",
+    ["Diego", "Ingeniería de datos",
      "Datos y servicios (D): copia de gold a S3, servicio de casos en DynamoDB, generador de clientes sintéticos, reloj de promesas, trazas; front en Streamlit si el tiempo no da para React",
      "Datos servidos, casos persistidos, reloj funcionando, pantallas básicas"],
-    ["Consultor de datos con AWS", "Infraestructura AWS",
+    ["Andrés", "Datos e infraestructura AWS",
      "Plataforma y seguridad (P): cuenta, IAM con permisos mínimos, App Runner o Lambda, acceso a Bedrock, gateway de herramientas, Secrets, CloudWatch, alarma de presupuesto, despliegue y prueba desde otra red",
      "Demo desplegada y estable, gateway auditado, costo bajo control"],
-    ["Data scientist senior (10 años)", "Ciencia de datos y ML",
+    ["Cristhian", "Ciencia de datos y ML",
      "ML y evaluación (M): conjunto ES/PT, clasificador y baselines, compuerta de confianza, suite de evaluación, juez validado, métricas por idioma y país, informe de evaluación y limitaciones",
      "Modelo versionado, reporte de evaluación reproducible, sección de rigor para los jueces"],
 ], [2.6, 3.2, 6.2, 4.5], size=8.5, bold_first_col=True)
-note("n8n no se usa en la solución: los jueces evalúan reproducibilidad con un solo comando y código versionado, y n8n agrega una dependencia difícil de reproducir y de auditar. Todo el flujo va en Python; n8n puede servir, como mucho, para simular el envío de notificaciones en la demo si al data engineer le resulta más rápido, y se documenta como simulación.", "Decisión")
-p("En el cronograma (sección 9) las columnas D, M, B y F corresponden a: D = data engineer, M = data scientist, B = Arturo, F = tareas de front y producto que se reparten entre Arturo y el data engineer; la columna de plataforma (P, consultor AWS) se detalla en la tabla siguiente.")
-table(["Fecha", "P · Plataforma y seguridad (consultor AWS)"], [
+note("Todo el flujo va en Python, versionado en el repo: los jueces evalúan reproducibilidad con un solo comando. Herramientas de orquestación visual (como n8n) no se usan en la solución porque agregan una dependencia difícil de reproducir y auditar; como mucho, para simular el envío de notificaciones en la demo, documentado como simulación.", "Decisión")
+p("En el cronograma (sección 9) las columnas D, M, B y F corresponden a: D = Diego, M = Cristhian, B = Arturo, F = tareas de front y producto que se reparten entre Arturo y Diego; la columna de plataforma (P = Andrés) se detalla en la tabla siguiente.")
+table(["Fecha", "P · Plataforma y seguridad (Andrés)"], [
     ["Sáb 26 – Dom 27 sep", "Cuenta AWS lista: verificar que Bedrock esté disponible en la cuenta gratuita y habilitar acceso a Claude Opus 5 y Sonnet 5 en us-east-2; IAM mínimo; alarma de presupuesto (30 USD); bucket S3 para gold y trazas; tabla DynamoDB"],
     ["Lun 28 sep", "Despliegue de prueba del contenedor (App Runner; si no está disponible en la cuenta gratuita, Lambda + API Gateway); Secrets Manager; primera prueba de Bedrock desde la API"],
     ["Mar 29 – Mié 30 sep", "Gateway de herramientas: alcance por cliente, redacción de campos personales, registro de auditoría; EventBridge Scheduler → /tick; CloudWatch con métricas de latencia y costo"],
@@ -595,9 +595,9 @@ page_break()
 # 9. CRONOGRAMA
 # =====================================================================
 h("9. Cronograma día por día (26 de septiembre a 5 de octubre)")
-p("Roles: D = Datos y plataforma, M = ML y evaluación, B = Backend y agente, F = Producto y front. Reunión diaria de 15 minutos a las 9:00 y cierre a las 21:00 con demo interna de lo que funciona. "
+p("Roles: D = Diego (datos y servicios), M = Cristhian (ML y evaluación), B = Arturo (backend y agente), F = producto y front (Arturo y Diego); P = Andrés (plataforma). Reunión diaria de 15 minutos a las 9:00 y cierre a las 21:00 con demo interna de lo que funciona. "
   "Hitos: M1 (28 sep) flujo de punta a punta por API; M2 (1 oct) tres rutas completos en la interfaz; M3 (3 oct) evaluación y despliegue; M4 (4 oct) video y slides; entrega 5 oct.")
-table(["Fecha", "Objetivo del día", "D · Datos y plataforma", "M · ML y evaluación", "B · Backend y agente", "F · Producto y front"], [
+table(["Fecha", "Objetivo del día", "D · Diego", "M · Cristhian", "B · Arturo", "F · Front y producto"], [
     ["Sáb 26 sep", "Decisión y diseño",
      "Estructura del repo de la app; 6 clientes preparados (Lucía, Andrés, Martina, Carlos, João, Sofía) y generador de clientes sintéticos",
      "Taxonomía de intenciones y plantilla de etiquetado; guía de variantes por país",
@@ -627,7 +627,7 @@ table(["Fecha", "Objetivo del día", "D · Datos y plataforma", "M · ML y evalu
      "Panel de operación v1: rutas, promesas en riesgo, latencia, costo",
      "Corrida completa de la suite; primer reporte de métricas por idioma y país",
      "Modo degradado sin LLM; reintentos acotados; límites de sesión; corrección de fallos de la suite",
-     "Pulido de las 6 conversaciones de la demo; textos en PT revisados por alguien que lo hable"],
+     "Pulido de las 6 conversaciones de la demo; textos en PT generados y revisados con un LLM externo"],
     ["Vie 2 oct", "Evaluación y decisión de modelo",
      "Fixture de actualización de datos (backup vs actual) y prueba automática",
      "Comparación Opus 5 vs Sonnet 5 en la misma suite; juez LLM validado con 50 casos a mano; clasificador final con 3 semillas",
@@ -659,7 +659,7 @@ h("10. Riesgos, límites y lo que se declara")
 h("10.1 Riesgos y mitigaciones", 2)
 table(["Riesgo", "Probabilidad", "Mitigación"], [
     ["Bedrock sin acceso a Opus 5 en la región, o cuenta AWS sin permisos a tiempo", "Media", "Sonnet 5 en Bedrock o API directa de Anthropic con la misma interfaz; Google Cloud (ya configurado) como plan B; decisión el día 27"],
-    ["Calidad del portugués sin hablantes nativos en el equipo", "Media", "Revisión por un hablante externo el día 1; se declara como limitación; métricas por idioma"],
+    ["Calidad del portugués sin hablantes nativos en el equipo (se genera y revisa con un LLM externo)", "Media", "Generación y revisión con un LLM externo; se declara como sintético y como limitación; métricas por idioma"],
     ["Conjunto ES/PT sesgado (frases demasiado parecidas)", "Media", "Guía de variantes, dos etiquetadores, revisión de duplicados por similitud antes del split"],
     ["El LLM inventa datos o motivos", "Baja", "El LLM nunca ve datos que no vengan de herramientas; salida estructurada; prueba de grounding en la suite"],
     ["Latencia de la conversación > 6 s", "Media", "Esfuerzo bajo, caché del prompt, plantillas para el 60% de los turnos, Sonnet 5 como alternativa"],

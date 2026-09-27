@@ -91,7 +91,7 @@
 <text x="40" y="466" font-size="11" font-weight="bold" fill="#D85A30">MODELOS  ·  entienden y redactan; sus salidas son datos, no órdenes</text>
 <rect x="50" y="480" width="320" height="85" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
 <circle cx="64" cy="494" r="10" fill="#D85A30"/><text x="64" y="498" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
-<text x="210.0" y="500" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">Clasificador local (data scientist)</text>
+<text x="210.0" y="500" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">Clasificador local (Cristhian)</text>
 <text x="210.0" y="517" font-size="11" fill="#993C1D" text-anchor="middle">embeddings multilingües + regresión logística</text>
 <text x="210.0" y="531" font-size="11" fill="#993C1D" text-anchor="middle">motivo (6+) · tipo de queja (5) · urgencia</text>
 <text x="210.0" y="545" font-size="11" fill="#993C1D" text-anchor="middle">50 ms · costo 0 · devuelve probabilidad</text>

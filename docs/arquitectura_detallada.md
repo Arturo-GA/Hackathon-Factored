@@ -12,15 +12,15 @@ Material para la reunión de validación del equipo (27 sep). Diagramas: `arquit
 
 | Capa | Componente | Quién lo construye | Qué hace |
 |---|---|---|---|
-| Canales | Chat del cliente, modo juez, pantalla del agente, tablero del banco, notificaciones simuladas | Arturo + data engineer (front) | Puerta de entrada y pantallas para cliente, agente, supervisor y jueces |
-| API | FastAPI en App Runner (o Lambda): sesión de prueba, /chat, /tick, trazas | Consultor AWS (infra) + Arturo (endpoints) | Autentica, recibe turnos, corre el reloj, registra todo |
+| Canales | Chat del cliente, modo juez, pantalla del agente, tablero del banco, notificaciones simuladas | Arturo + Diego (front) | Puerta de entrada y pantallas para cliente, agente, supervisor y jueces |
+| API | FastAPI en App Runner (o Lambda): sesión de prueba, /chat, /tick, trazas | Andrés (infra) + Arturo (endpoints) | Autentica, recibe turnos, corre el reloj, registra todo |
 | Orquestador | Máquina de estados: identificar → entender → verificar → decidir → actuar → seguir | Arturo (con Claude Code) | El cerebro determinista; cada paso deja registro de por qué |
-| Modelos | Clasificador local (motivo, tipo de queja, urgencia, con probabilidad) y LLM Claude Opus 5 en Bedrock (extraer datos, preguntar, redactar) | Data scientist (clasificador) + Arturo (prompts) | Entienden y redactan; sus salidas son datos que el orquestador usa, nunca órdenes |
-| Gateway de herramientas | Único acceso a datos y acciones: alcance por cliente, sin datos personales, auditoría | Consultor AWS | Ninguna consulta ni acción pasa sin verificar que el dato sea del cliente autenticado |
-| Herramientas | Buscar cargos, tarjetas, perfil, reclamos, tarifas; abrir/actualizar caso, bloquear tarjeta, enrutar | Data engineer | Solo lectura más tres acciones, todas verificadas en el core simulado |
-| Datos y servicios (AWS) | Gold en S3 (Parquet + DuckDB), casos en DynamoDB, core simulado, colas de agentes, Bedrock, Secrets, CloudWatch | Data engineer + consultor AWS | Datos verificados, estado de los casos, acciones simuladas, modelo y observabilidad |
-| Datos de origen | Pipeline bronze → silver → gold (ya construido, 194 checks de calidad) | Data engineer (mantener) | Copia de gold a S3; BigQuery queda como respaldo |
-| Evaluación | Conjunto ES/PT, clasificador vs baselines, suite de punta a punta, juez validado | Data scientist | Prueba de que funciona, con números y límites, reproducible con un comando |
+| Modelos | Clasificador local (motivo, tipo de queja, urgencia, con probabilidad) y LLM Claude Opus 5 en Bedrock (extraer datos, preguntar, redactar) | Cristhian (clasificador) + Arturo (prompts) | Entienden y redactan; sus salidas son datos que el orquestador usa, nunca órdenes |
+| Gateway de herramientas | Único acceso a datos y acciones: alcance por cliente, sin datos personales, auditoría | Andrés | Ninguna consulta ni acción pasa sin verificar que el dato sea del cliente autenticado |
+| Herramientas | Buscar cargos, tarjetas, perfil, reclamos, tarifas; abrir/actualizar caso, bloquear tarjeta, enrutar | Diego | Solo lectura más tres acciones, todas verificadas en el core simulado |
+| Datos y servicios (AWS) | Gold en S3 (Parquet + DuckDB), casos en DynamoDB, core simulado, colas de agentes, Bedrock, Secrets, CloudWatch | Diego + Andrés | Datos verificados, estado de los casos, acciones simuladas, modelo y observabilidad |
+| Datos de origen | Pipeline bronze → silver → gold (ya construido, 194 checks de calidad) | Diego (mantener) | Copia de gold a S3; BigQuery queda como respaldo |
+| Evaluación | Conjunto ES/PT, clasificador vs baselines, suite de punta a punta, juez validado | Cristhian | Prueba de que funciona, con números y límites, reproducible con un comando |
 
 ## 3. El flujo total, turno a turno
 
@@ -58,5 +58,5 @@ Material para la reunión de validación del equipo (27 sep). Diagramas: `arquit
 
 1. ¿La cuenta gratuita de AWS permite habilitar Claude en Bedrock y App Runner? Si no: Lambda + API Gateway y API directa de Anthropic.
 2. ¿Front en React (más vistoso) o Streamlit (más rápido)? Propuesta: Streamlit si el día 29 el React no está andando.
-3. ¿Quién etiqueta el conjunto ES/PT con el data scientist? Se necesitan dos personas y medio día. El portugués se genera y revisa con un LLM externo y se declara como sintético.
+3. ¿Quién etiqueta el conjunto ES/PT con Cristhian? Se necesitan dos personas y medio día. El portugués se genera y revisa con un LLM externo y se declara como sintético.
 4. ¿Se incluye el módulo de notificación por consumo (estilo Yape/BCP) como extensión del día 7, o se deja como trabajo pendiente?
