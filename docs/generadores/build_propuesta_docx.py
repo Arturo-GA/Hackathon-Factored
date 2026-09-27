@@ -188,7 +188,7 @@ p("Atención de quejas con IA controlada: resolver o encaminar en una conversaci
   size=14, color=GRIS, align=WD_ALIGN_PARAGRAPH.CENTER, after=30)
 p("Propuesta detallada para el Factored AI & Data Hackathon 2026", size=12, align=WD_ALIGN_PARAGRAPH.CENTER, after=4)
 p("Dataset LATAM Bank · Flujo: reclamos y quejas (transaction-dispute intake + card/account support)", size=11, color=GRIS, align=WD_ALIGN_PARAGRAPH.CENTER, after=4)
-p("Versión 1.3 · 27 de septiembre de 2026 · Borrador de trabajo para el equipo", size=11, color=GRIS, align=WD_ALIGN_PARAGRAPH.CENTER, after=40)
+p("Versión 1.4 · 27 de septiembre de 2026 (18:00) · Borrador de trabajo para el equipo", size=11, color=GRIS, align=WD_ALIGN_PARAGRAPH.CENTER, after=40)
 p("Contenido", bold=True, size=12, color=AZUL, after=4)
 for i, t in enumerate([
     "Resumen ejecutivo", "El dolor, con la data", "La solución: Expediente Vivo", "Cuándo IA, cuándo automático, cuándo humano",
@@ -233,7 +233,7 @@ rich([("Ganancia estimada (banco de 150.000 clientes): ", "b"),
       f"≈ {fmt(directo - llm_opus - infra)} USD/año netos en costo directo de atención (horas de agente y recontactos evitados, descontado el costo del sistema) y, como proyección con benchmarks externos, "
       f"≈ {fmt(dep_retenidos / 1e6, 1)} millones USD de depósitos retenidos al año. Escalado a un banco de 1 millón de clientes, el ahorro directo neto ronda los {fmt((directo - llm_opus - infra) * 6.67 / 1000)} mil USD/año. "
       f"El costo del modelo de lenguaje es marginal: ≈ {fmt(llm_opus)} USD/año con Claude Opus 5."])
-rich([("Plazo: ", "b"), "10 días (26 de septiembre a 5 de octubre). ", ("Equipo: ", "b"), "4 personas con roles definidos. ",
+rich([("Plazo: ", "b"), "8 días de construcción (28 de septiembre a 5 de octubre; el 26 y 27 se usaron en análisis y diseño). ", ("Equipo: ", "b"), "4 personas con roles definidos. ",
       ("Nube: ", "b"), "AWS (App Runner + DynamoDB + S3, Claude en Bedrock), aprovechando que el equipo tiene experiencia en AWS; Google Cloud queda como plan B con las tablas ya publicadas en BigQuery. ",
       ("Modelo: ", "b"), "Claude Opus 5 en Amazon Bedrock, con Sonnet 5 evaluado como alternativa de costo."])
 page_break()
@@ -359,6 +359,15 @@ table(["Ruta", "Cuándo aplica (regla)", "Qué hace el sistema", "Resultado para
      "Atención humana con contexto: sin repetir la historia"],
 ], [2.6, 5.2, 5.2, 4.1], size=8.5, bold_first_col=True)
 
+p("Por qué la ruta B no se resuelve al momento: el chat hace todo lo que se puede hacer en la conversación (encontrar el cargo, verificar que es del cliente, registrar la evidencia, abrir el caso, dar número y fecha). Lo que no puede hacer es resolver el fondo, porque exige investigar o decidir sobre dinero, y ninguna de las dos cosas debe hacerlas un chat solo:", after=2)
+table(["Tipo de queja", "Se hace al momento (chat)", "No se puede al momento, y por qué"], [
+    ["Cargo no reconocido", "Mostrar el cargo, bloquear la tarjeta con confirmación, abrir el caso", "Devolver el dinero: es un contracargo que pasa por la red de tarjetas y el comercio (días); el brief prohíbe mover dinero"],
+    ["Cobro indebido", "Comparar con la tarifa; si coincide, explicar y cerrar (ruta A)", "Anular la comisión: requiere una persona autorizada que la revierta en el core"],
+    ["Problema con app", "Guía; registrar el error y el dinero afectado", "Corregir el error o recuperar el dinero: lo hace el equipo técnico"],
+    ["Atención en sucursal", "Registrar sucursal, fecha y hecho", "Investigar con la sucursal y las personas involucradas"],
+    ["Calidad de servicio", "Registrar canal, fecha y contacto previo", "Revisar la atención: grabación, agente"],
+], [3.4, 5.8, 7.3], size=8.5, bold_first_col=True)
+p("Lo que cambia respecto de hoy: la primera respuesta pasa de 38 horas a segundos, el caso nace completo (hoy el 67% no trae monto y el 100% referencia un producto ajeno, que es lo que alarga los 16 días), el reloj garantiza que alguien lo tome en 24 horas, y la fecha prometida es realista.")
 h("3.5 El viaje con Expediente Vivo", 2)
 table(["Etapa", "Hoy", "Con Expediente Vivo"], [
     ["Entrada", "Teléfono, 120 s de espera", "Chat en app/WhatsApp/web; respuesta inicial en < 5 s; el teléfono sigue disponible"],
@@ -384,6 +393,13 @@ page_break()
 # =====================================================================
 # 4. CUÁNDO IA / AUTOMÁTICO / HUMANO
 # =====================================================================
+h("3.7 Qué es el score de fraude y por qué la regla es \u2018score > 30\u2019", 2)
+p("Cada transacción trae dos columnas: is_fraud (la verdad: si fue fraude, que en un banco real se sabe después) y fraud_score, una calificación de sospecha de 0 a 100 que el sistema antifraude calculó en el momento. En la data, las transacciones legítimas tienen score entre 0 y 30 y las fraudulentas entre 0 y 100; por eso todo lo que supera 30 es fraude con certeza:")
+table(["Score de la transacción", "Transacciones", "Fraudes reales"], [
+    ["Nulo (sin score)", "885.157", "891 (0,1%)"], ["Entre 0 y 30", "3.537.478", "1.052 (0,03%)"], ["Mayor que 30", "2.373", "2.373 (100%)"],
+], [5.0, 4.0, 4.0], size=9)
+p("Precisión 100%: de lo que la regla marca, todo es fraude (cero falsas alarmas). Cobertura 55%: de los 4.316 fraudes reales, la regla atrapa 2.373; los otros 1.943 no se distinguen de una compra normal con ninguna variable (se probaron 44). "
+  "El banco aprobó el 92% de los fraudes pese al score: nadie actuaba sobre él. La vía rápida usa la regla como disparador determinista y siempre pide confirmación al cliente, porque en un banco real los scores se solapan y habría falsas alarmas; la perfección del corte es un artefacto del dataset sintético y se declara.")
 h("4. Cuándo IA, cuándo automático, cuándo humano")
 h("4.1 Matriz de decisión", 2)
 table(["Situación", "Responde", "Por qué", "Costo / latencia"], [
@@ -421,6 +437,7 @@ table(["Disparador", "Fuente del dato", "Cola destino", "Prioridad / SLA interno
 ], [5.2, 4.2, 3.6, 4.1], size=8.5)
 note("El chat nunca desbloquea tarjetas, nunca promete reembolsos ni compensaciones y nunca mueve dinero. Bloquear una tarjeta requiere confirmación explícita del cliente y verificación del resultado en el core simulado.", "Límites duros")
 
+note("La columna \u2018Prioridad / SLA interno\u2019 es el tiempo máximo para que una persona TOME el caso (2 h fraude, 4 h regulador, 8 h reincidente), no el tiempo de resolución. El cliente recibe respuesta, número de caso y quién lo atenderá en segundos; la resolución de fondo sigue los plazos de la ruta B (mediana 16 días; el 90% en 28 o menos).", "Dos plazos distintos")
 h("4.4 Seguridad y privacidad", 2)
 bullet(["Autenticación por sesión de prueba emitida por un servicio de identidad simulado (documento + hash + código de app). Un número de documento solo no prueba identidad; el email y el teléfono no sirven (53% de emails compartidos en la data)."])
 bullet(["Verificación de propiedad en la capa de herramientas: ninguna consulta devuelve datos de un producto que no sea del cliente autenticado. Los IDs ajenos que trae el propio dataset se usan como casos de prueba de acceso indebido."])
@@ -450,6 +467,23 @@ table(["Capa", "Componente", "Tecnología", "Responsabilidad"], [
 p("Diagrama de la arquitectura (morado decide, coral entiende y redacta, gris ejecuta):", after=2)
 doc.add_picture(r"C:\Users\Arturo\Documents\Factored Hackathon\docs\arquitectura_expediente_vivo.png", width=Cm(15.5))
 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+from docx.enum.section import WD_SECTION
+def landscape(on):
+    sec = doc.add_section(WD_SECTION.NEW_PAGE)
+    w, hgt = (Cm(29.7), Cm(21)) if on else (Cm(21), Cm(29.7))
+    sec.orientation = WD_ORIENT.LANDSCAPE if on else WD_ORIENT.PORTRAIT
+    sec.page_width, sec.page_height = w, hgt
+    sec.left_margin = sec.right_margin = Cm(1.5); sec.top_margin = sec.bottom_margin = Cm(1.5)
+    return sec
+landscape(True)
+p("Arquitectura detallada: los números siguen el camino de una queja (1 el cliente escribe, 2 sesión y perfil, 3 el clasificador, 4 el LLM extrae o pregunta, 5 el gateway verifica, 6 las reglas eligen la ruta, 7 se actúa y verifica, 8 promesa y reloj, 9 el reloj avisa, 10 el humano recibe el expediente).", size=9.5, after=2)
+doc.add_picture(r"C:\Users\Arturo\Documents\Factored Hackathon\docs\arquitectura_detallada.png", width=Cm(24))
+doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+p("Flujo de una conversación, turno a turno (morado = regla en código, coral = modelo, verde = humano, gris = automático con datos).", size=9.5, after=2)
+doc.add_picture(r"C:\Users\Arturo\Documents\Factored Hackathon\docs\flujo_conversacion.png", width=Cm(24))
+doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+landscape(False)
 h("5.2 Nube: AWS como principal, Google Cloud como plan B", 2)
 rich(["Se elige ", ("AWS", "b"), " porque Andrés la domina (el despliegue deja de ser un riesgo), los organizadores la sugieren, y Claude está disponible en Bedrock sin cuenta aparte con Anthropic. "
       "Las tablas gold ya publicadas en BigQuery se copian a S3 como Parquet (unos 500 MB) con un comando; el pipeline no cambia."])
@@ -535,10 +569,10 @@ table(["Persona", "Perfil", "Rol en el proyecto", "Entregables"], [
 note("Todo el flujo va en Python, versionado en el repo: los jueces evalúan reproducibilidad con un solo comando. Herramientas de orquestación visual (como n8n) no se usan en la solución porque agregan una dependencia difícil de reproducir y auditar; como mucho, para simular el envío de notificaciones en la demo, documentado como simulación.", "Decisión")
 p("En el cronograma (sección 9) las columnas D, M, B y F corresponden a: D = Diego, M = Cristhian, B = Arturo, F = tareas de front y producto que se reparten entre Arturo y Diego; la columna de plataforma (P = Andrés) se detalla en la tabla siguiente.")
 table(["Fecha", "P · Plataforma y seguridad (Andrés)"], [
-    ["Sáb 26 – Dom 27 sep", "Cuenta AWS lista: verificar que Bedrock esté disponible en la cuenta gratuita y habilitar acceso a Claude Opus 5 y Sonnet 5 en us-east-2; IAM mínimo; alarma de presupuesto (30 USD); bucket S3 para gold y trazas; tabla DynamoDB"],
-    ["Lun 28 sep", "Despliegue de prueba del contenedor (App Runner; si no está disponible en la cuenta gratuita, Lambda + API Gateway); Secrets Manager; primera prueba de Bedrock desde la API"],
-    ["Mar 29 – Mié 30 sep", "Gateway de herramientas: alcance por cliente, redacción de campos personales, registro de auditoría; EventBridge Scheduler → /tick; CloudWatch con métricas de latencia y costo"],
-    ["Jue 1 – Vie 2 oct", "Interruptores de falla en infraestructura (tool caído, modelo lento); límites de mensajes por sesión; revisión de seguridad (claves, permisos, propiedad)"],
+    ["Dom 27 sep (noche) – Lun 28 sep", "Cuenta AWS lista: verificar que Bedrock esté disponible en la cuenta gratuita y habilitar Claude Opus 5 y Sonnet 5 en us-east-2 (si no: API directa de Anthropic); IAM mínimo; alarma de presupuesto (30 USD); bucket S3 para gold y trazas; tabla DynamoDB"],
+    ["Mar 29 sep", "Despliegue de prueba del contenedor (App Runner; si no está disponible, Lambda + API Gateway); Secrets Manager; primera consulta a Bedrock desde la API"],
+    ["Mié 30 sep – Jue 1 oct", "Gateway de herramientas: alcance por cliente, redacción de campos personales, registro de auditoría; EventBridge Scheduler → /tick; CloudWatch con métricas de latencia y costo"],
+    ["Vie 2 oct", "Interruptores de falla en infraestructura (tool caído, modelo lento); límites de mensajes por sesión; revisión de seguridad (claves, permisos, propiedad)"],
     ["Sáb 3 – Lun 5 oct", "Despliegue final, prueba desde otra red y otra cuenta, monitoreo durante la ventana de jueces, respaldo del video"],
 ], [3.4, 13.1], size=8.5, bold_first_col=True)
 h("7.2 Operación del banco: cuántas personas por ruta", 2)
@@ -594,47 +628,43 @@ page_break()
 # =====================================================================
 # 9. CRONOGRAMA
 # =====================================================================
-h("9. Cronograma día por día (26 de septiembre a 5 de octubre)")
-p("Roles: D = Diego (datos y servicios), M = Cristhian (ML y evaluación), B = Arturo (backend y agente), F = producto y front (Arturo y Diego); P = Andrés (plataforma). Reunión diaria de 15 minutos a las 9:00 y cierre a las 21:00 con demo interna de lo que funciona. "
-  "Hitos: M1 (28 sep) flujo de punta a punta por API; M2 (1 oct) tres rutas completos en la interfaz; M3 (3 oct) evaluación y despliegue; M4 (4 oct) video y slides; entrega 5 oct.")
+h("9. Cronograma día por día (28 de septiembre a 5 de octubre)")
+p("Situación al 27 de septiembre, 18:00: el análisis de datos, el pipeline, la elección del flujo y la arquitectura están hechos; la reunión de esta noche valida la arquitectura y reparte el trabajo. Quedan 8 días de construcción. "
+  "Roles: D = Diego (datos y servicios), M = Cristhian (ML y evaluación), B = Arturo (backend y agente), F = front y producto (Arturo y Diego); P = Andrés (plataforma, tabla de la sección 7.1). "
+  "Reunión diaria de 15 minutos a las 9:00 y cierre a las 21:00 con demo interna de lo que funciona. Hitos: M1 (mar 29) flujo de punta a punta por API; M2 (jue 1) tres rutas completas en la interfaz; M3 (sáb 3) evaluación y despliegue congelados; M4 (dom 4) video y slides; entrega lun 5 antes del mediodía.")
 table(["Fecha", "Objetivo del día", "D · Diego", "M · Cristhian", "B · Arturo", "F · Front y producto"], [
-    ["Sáb 26 sep", "Decisión y diseño",
-     "Estructura del repo de la app; 6 clientes preparados (Lucía, Andrés, Martina, Carlos, João, Sofía) y generador de clientes sintéticos",
-     "Taxonomía de intenciones y plantilla de etiquetado; guía de variantes por país",
-     "Máquina de estados v1 con triaje de los 6 motivos; reglas de ruta/completitud en YAML; esquema del expediente y del paquete de derivación",
-     "Guion de las 6 conversaciones de la demo (3 casos × ES/PT); bocetos de las 4 pantallas"],
-    ["Dom 27 sep", "Cimientos",
-     "Servicio de casos (DynamoDB, con SQLite en local) con estados, SLA y reloj; gateway de herramientas sobre gold con verificación de propiedad",
-     "Primeras 300 frases ES/PT (generación + revisión); baseline de palabras clave",
-     "Orquestador con plantillas automáticas; integración con Claude (prompt de sistema con caché, salida estructurada para entidades)",
-     "Esqueleto del chat y del panel del expediente; selector ES/PT y de usuario de prueba"],
-    ["Lun 28 sep", "M1 · Punta a punta",
-     "Trazas por conversación (tabla); despliegue de prueba en App Runner; alarma de presupuesto; copia de gold a S3",
-     "600 frases etiquetadas por dos personas; medición de acuerdo",
-     "Ruta B completo por API: entender → verificar → abrir caso → número y fecha prometida",
+    ["Dom 27 sep (noche)", "Reunión: validar arquitectura y repartir trabajo",
+     "Revisar el pipeline y las tablas gold que usará la demo",
+     "Revisar la taxonomía de intenciones (motivo, tipo de queja, urgencia) y la plantilla de etiquetado",
+     "Presentar arquitectura y flujo; cerrar decisiones (Bedrock o API directa, React o Streamlit)",
+     "Acordar el guion de las 6 conversaciones de la demo (3 casos × ES/PT)"],
+    ["Lun 28 sep", "Cimientos",
+     "Estructura del repo de la app; copia de gold a S3; servicio de casos (DynamoDB, con SQLite en local) con estados y SLA; 6 clientes preparados y generador de clientes sintéticos",
+     "Primeras 300 frases ES/PT (generación con LLM externo para PT + revisión); baseline de palabras clave",
+     "Máquina de estados v1 con triaje de los 6 motivos; reglas de ruta/completitud en YAML; esquema del expediente; orquestador con plantillas automáticas",
+     "Bocetos de las 4 pantallas; esqueleto del chat y del panel del expediente"],
+    ["Mar 29 sep", "M1 · Punta a punta por API",
+     "Gateway de herramientas sobre gold con verificación de propiedad; trazas por conversación",
+     "600 frases etiquetadas por dos personas; medición de acuerdo; clasificador v1 (embeddings + regresión logística)",
+     "Integración con Claude (prompt de sistema con caché, salida estructurada para entidades); ruta B completa por API: entender → verificar → abrir caso → número y fecha",
      "Chat funcional contra la API; expediente que se llena en vivo; pantalla de modo juez (elegir cliente)"],
-    ["Mar 29 sep", "Ruta A",
-     "Tabla sintética de tarifas (etiquetada); búsqueda de transacciones por fecha local, monto aproximado y comercio",
-     "Clasificador v1 (embeddings + regresión logística) vs baselines; primera compuerta de confianza",
-     "Resoluciones del ruta A (cargo explicado, reverso aplicado, tarifa, error de app); pregunta '¿quedó resuelto?'",
-     "Botones de opciones, aclaraciones, mensajes de estado; primera versión en portugués"],
-    ["Mié 30 sep", "Ruta C y humano",
-     "EventBridge Scheduler → /tick: alertas 24 h, 80% SLA, vencimiento; segunda opinión",
-     "Conjunto de 200 conversaciones de prueba con resultado esperado (incluye 30 adversarias)",
-     "Reglas de derivación; paquete de derivación; enrutamiento por idioma y especialidad; defensa contra inyección",
-     "Consola del agente: cola por ruta e idioma, expediente, tomar/resolver/devolver; interruptores de falla"],
+    ["Mié 30 sep", "Rutas A y C",
+     "Tabla sintética de tarifas; búsqueda de transacciones por fecha local, monto aproximado y comercio; EventBridge → /tick con alertas 24 h, 80% SLA, vencimiento",
+     "Compuerta de confianza calibrada; conjunto de 200 conversaciones de prueba con resultado esperado (incluye 30 adversarias)",
+     "Resoluciones de la ruta A (cargo explicado, reverso, tarifa, error de app); reglas de derivación, paquete de derivación, enrutamiento por idioma y especialidad; defensa contra inyección",
+     "Botones de opciones, aclaraciones, mensajes de estado; primera versión en portugués; pantalla del agente (cola, expediente, tomar/resolver/devolver)"],
     ["Jue 1 oct", "M2 · Tres rutas en la interfaz",
-     "Panel de operación v1: rutas, promesas en riesgo, latencia, costo",
+     "Segunda opinión al cerrar; tablero del banco v1 (rutas, promesas en riesgo, latencia, costo)",
      "Corrida completa de la suite; primer reporte de métricas por idioma y país",
      "Modo degradado sin LLM; reintentos acotados; límites de sesión; corrección de fallos de la suite",
-     "Pulido de las 6 conversaciones de la demo; textos en PT generados y revisados con un LLM externo"],
+     "Interruptores de falla; pulido de las 6 conversaciones de la demo; textos en PT revisados con el LLM externo"],
     ["Vie 2 oct", "Evaluación y decisión de modelo",
-     "Fixture de actualización de datos (backup vs actual) y prueba automática",
+     "Fixture de actualización de datos (backup vs actual) y prueba automática; botón 'reiniciar demo'",
      "Comparación Opus 5 vs Sonnet 5 en la misma suite; juez LLM validado con 50 casos a mano; clasificador final con 3 semillas",
      "Ajustes de reglas y compuerta con los resultados; casos adversarios adicionales",
-     "Panel de operación con las métricas de evaluación; captura de pantallas para slides"],
+     "Tablero con las métricas de evaluación; capturas para slides"],
     ["Sáb 3 oct", "M3 · Congelar y desplegar",
-     "Despliegue final en App Runner; README con guía de prueba paso a paso y clientes sintéticos; verificación desde otra red",
+     "Despliegue final; README con guía de prueba paso a paso y clientes sintéticos; verificación desde otra red",
      "Reporte de evaluación final (tablas, tamaños de muestra, límites, variabilidad)",
      "Congelación de código a las 18:00; solo correcciones críticas",
      "Ensayo de la demo completa; guion del video"],
@@ -649,7 +679,7 @@ table(["Fecha", "Objetivo del día", "D · Diego", "M · Cristhian", "B · Artur
      "Respaldo: video como plan B si la demo cae",
      "Envío del correo a hackathon.admin@factored.ai antes del mediodía; verificación de links en incógnito"],
 ], [1.7, 2.1, 3.3, 3.1, 3.3, 3.0], size=7.5)
-note("Si el día 30 el ruta C no está listo, se recorta el panel de operación (día 1) y no la evaluación. La evaluación y el README pesan más en el puntaje que una pantalla adicional.", "Regla de recorte")
+note("Si el jueves 1 la ruta C no está lista, se recorta el tablero del banco y el módulo de notificaciones, nunca la evaluación ni el README: pesan más en el puntaje que una pantalla adicional. Si el miércoles 30 el front en React no funciona, se pasa a Streamlit ese mismo día.", "Regla de recorte")
 page_break()
 
 # =====================================================================
