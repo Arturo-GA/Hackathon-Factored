@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1010" viewBox="0 0 1500 1010" font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1500" height="1010" fill="#ffffff"/>
+<text x="30" y="34" font-size="19" fill="#2C2C2A" text-anchor="start" font-weight="bold">Expediente Vivo · Flujo de una conversación (qué decide cada paso y quién lo hace)</text>
+<text x="30" y="56" font-size="12" fill="#5F5E5A" text-anchor="start">Colores: morado = regla en código · coral = modelo · verde = humano · gris = automático con datos</text>
+<rect x="40" y="90" width="220" height="70" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="150.0" y="110" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">1 · Entra un mensaje</text>
+<text x="150.0" y="127" font-size="11" fill="#5F5E5A" text-anchor="middle">cliente autenticado (sesión de prueba)</text>
+<text x="150.0" y="141" font-size="11" fill="#5F5E5A" text-anchor="middle">canal: app / WhatsApp / web</text>
+<polyline points="260,125 300,125" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="300,125 291.9,128.9 291.9,121.1" fill="#5F5E5A"/>
+<rect x="300" y="90" width="260" height="70" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="430.0" y="110" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">2 · Clasificador</text>
+<text x="430.0" y="127" font-size="11" fill="#993C1D" text-anchor="middle">motivo + tipo de queja + urgencia</text>
+<text x="430.0" y="141" font-size="11" fill="#993C1D" text-anchor="middle">con probabilidad</text>
+<polyline points="560,125 600,125" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="600,125 591.9,128.9 591.9,121.1" fill="#5F5E5A"/>
+<rect x="600" y="90" width="250" height="70" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="725.0" y="110" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">3 · Compuerta de confianza</text>
+<text x="725.0" y="127" font-size="11" fill="#534AB7" text-anchor="middle">≥ 0,85 sigue · 0,60–0,85 aclara</text>
+<text x="725.0" y="141" font-size="11" fill="#534AB7" text-anchor="middle">&lt; 0,60 dos veces → humano</text>
+<polyline points="850,110 930,110" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="930,110 921.9,113.9 921.9,106.1" fill="#D85A30"/>
+<rect x="857.2" y="101.0" width="65.6" height="15" fill="#ffffff"/>
+<text x="890.0" y="113.0" font-size="10.5" fill="#D85A30" text-anchor="middle">0,60–0,85</text>
+<rect x="930" y="80" width="230" height="60" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="1045.0" y="100" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">LLM pregunta (una vez)</text>
+<text x="1045.0" y="117" font-size="11" fill="#993C1D" text-anchor="middle">&#x27;¿fue un cargo o la app?&#x27;</text>
+<text x="1045.0" y="131" font-size="11" fill="#993C1D" text-anchor="middle">con 2 opciones como botones</text>
+<polyline points="1045,140 1045,175 725,175 725,160" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="725,160 728.9,168.1 721.1,168.1" fill="#D85A30"/>
+<rect x="653.8" y="166" width="142.4" height="15" fill="#ffffff"/>
+<text x="725" y="178" font-size="10.5" fill="#D85A30" text-anchor="middle">respuesta del cliente</text>
+<polyline points="850,140 880,140 880,215 1230,215 1230,250" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="1230,250 1226.1,241.9 1233.9,241.9" fill="#534AB7"/>
+<rect x="732.0" y="206" width="296.0" height="15" fill="#ffffff"/>
+<text x="880" y="218" font-size="10.5" fill="#534AB7" text-anchor="middle">&lt; 0,60 ×2 · &#x27;quiero una persona&#x27; · emergencia</text>
+<rect x="40" y="250" width="300" height="110" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="190.0" y="270" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">4 · Triaje por motivo</text>
+<text x="190.0" y="287" font-size="11" fill="#534AB7" text-anchor="middle">Queja → sigue abajo</text>
+<text x="190.0" y="301" font-size="11" fill="#534AB7" text-anchor="middle">Transaccional / Producto → modo consulta</text>
+<text x="190.0" y="315" font-size="11" fill="#534AB7" text-anchor="middle">Técnico sin dinero → guía + derivación</text>
+<text x="190.0" y="329" font-size="11" fill="#534AB7" text-anchor="middle">Comercial / Retención → derivación directa</text>
+<text x="190.0" y="343" font-size="11" fill="#534AB7" text-anchor="middle">fuera de alcance → abstención + menú</text>
+<polyline points="725,160 725,220 190,220 190,250" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="190,250 186.1,241.9 193.9,241.9" fill="#534AB7"/>
+<rect x="40" y="400" width="300" height="100" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="190.0" y="420" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Modo consulta (sin caso)</text>
+<text x="190.0" y="437" font-size="11" fill="#5F5E5A" text-anchor="middle">saldo, movimientos, estado de un pago,</text>
+<text x="190.0" y="451" font-size="11" fill="#5F5E5A" text-anchor="middle">tarjetas y vencimiento: datos verificados</text>
+<text x="190.0" y="465" font-size="11" fill="#5F5E5A" text-anchor="middle">por el gateway; si aparece un cargo</text>
+<text x="190.0" y="479" font-size="11" fill="#5F5E5A" text-anchor="middle">no reconocido → entra al flujo de queja</text>
+<polyline points="190,360 190,400" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="190,400 186.1,391.9 193.9,391.9" fill="#5F5E5A"/>
+<rect x="109.19999999999999" y="371.0" width="161.60000000000002" height="15" fill="#ffffff"/>
+<text x="190.0" y="383.0" font-size="10.5" fill="#5F5E5A" text-anchor="middle">Transaccional / Producto</text>
+<rect x="720" y="250" width="300" height="110" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="870.0" y="270" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">5 · Datos obligatorios por tipo</text>
+<text x="870.0" y="287" font-size="11" fill="#534AB7" text-anchor="middle">cargo: fecha, monto o comercio + tarjeta</text>
+<text x="870.0" y="301" font-size="11" fill="#534AB7" text-anchor="middle">cobro: cargo + motivo</text>
+<text x="870.0" y="315" font-size="11" fill="#534AB7" text-anchor="middle">app: pantalla + fecha</text>
+<text x="870.0" y="329" font-size="11" fill="#534AB7" text-anchor="middle">sucursal: sucursal + fecha + qué pasó</text>
+<text x="870.0" y="343" font-size="11" fill="#534AB7" text-anchor="middle">servicio: canal + fecha + qué pasó</text>
+<polyline points="340,305 720,305" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="720,305 711.9,308.9 711.9,301.1" fill="#534AB7"/>
+<rect x="478.0" y="296.0" width="104.0" height="15" fill="#ffffff"/>
+<text x="530.0" y="308.0" font-size="10.5" fill="#534AB7" text-anchor="middle">Queja (5 tipos)</text>
+<rect x="1060" y="250" width="400" height="110" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.2"/>
+<text x="1260.0" y="270" font-size="14" font-weight="bold" fill="#04342C" text-anchor="middle">Humano ahora (ruta C)</text>
+<text x="1260.0" y="287" font-size="11" fill="#0F6E56" text-anchor="middle">paquete de derivación: hechos verificados,</text>
+<text x="1260.0" y="301" font-size="11" fill="#0F6E56" text-anchor="middle">acciones, evidencia, preguntas abiertas</text>
+<text x="1260.0" y="315" font-size="11" fill="#0F6E56" text-anchor="middle">cola por especialidad e idioma (7 con portugués)</text>
+<text x="1260.0" y="329" font-size="11" fill="#0F6E56" text-anchor="middle">SLA interno: 2 h fraude · 4 h regulador · 8 h reincidente</text>
+<rect x="720" y="400" width="300" height="100" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="870.0" y="420" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">6 · Verificar con el gateway</text>
+<text x="870.0" y="437" font-size="11" fill="#534AB7" text-anchor="middle">¿el cargo existe? ¿es de un producto del cliente?</text>
+<text x="870.0" y="451" font-size="11" fill="#534AB7" text-anchor="middle">estado, código, motivo, riesgo de fraude</text>
+<text x="870.0" y="465" font-size="11" fill="#534AB7" text-anchor="middle">¿reverso ya aplicado? ¿coincide con tarifa?</text>
+<text x="870.0" y="479" font-size="11" fill="#534AB7" text-anchor="middle">¿la sucursal existe? ¿hubo contacto ese día?</text>
+<polyline points="870,360 870,400" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="870,400 866.1,391.9 873.9,391.9" fill="#534AB7"/>
+<rect x="795.6" y="371.0" width="148.8" height="15" fill="#ffffff"/>
+<text x="870.0" y="383.0" font-size="10.5" fill="#534AB7" text-anchor="middle">pide solo lo que falta</text>
+<rect x="380" y="400" width="300" height="100" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="530.0" y="420" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">LLM extrae entidades</text>
+<text x="530.0" y="437" font-size="11" fill="#993C1D" text-anchor="middle">&#x27;450 el 12 de junio en super ahorro&#x27; →</text>
+<text x="530.0" y="451" font-size="11" fill="#993C1D" text-anchor="middle">{monto: 450, fecha: 2026-06-12, comercio: ...}</text>
+<text x="530.0" y="465" font-size="11" fill="#993C1D" text-anchor="middle">salida estructurada validada</text>
+<polyline points="720,430 680,430" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="680,430 688.1,426.1 688.1,433.9" fill="#D85A30"/>
+<rect x="660.8" y="421.0" width="78.4" height="15" fill="#ffffff"/>
+<text x="700.0" y="433.0" font-size="10.5" fill="#D85A30" text-anchor="middle">texto libre</text>
+<polyline points="680,470 720,470" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="720,470 711.9,473.9 711.9,466.1" fill="#D85A30"/>
+<rect x="676.8" y="461.0" width="46.400000000000006" height="15" fill="#ffffff"/>
+<text x="700.0" y="473.0" font-size="10.5" fill="#D85A30" text-anchor="middle">campos</text>
+<rect x="720" y="540" width="300" height="110" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="870.0" y="560" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">7 · Reglas de ruta (YAML)</text>
+<text x="870.0" y="577" font-size="11" fill="#534AB7" text-anchor="middle">¿regulador, reincidente, crítico, &gt; 500 USD,</text>
+<text x="870.0" y="591" font-size="11" fill="#534AB7" text-anchor="middle">score &gt; 30, personas, disputa? → C</text>
+<text x="870.0" y="605" font-size="11" fill="#534AB7" text-anchor="middle">¿la evidencia explica el problema? → A</text>
+<text x="870.0" y="619" font-size="11" fill="#534AB7" text-anchor="middle">si no → B</text>
+<polyline points="870,500 870,540" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="870,540 866.1,531.9 873.9,531.9" fill="#534AB7"/>
+<polyline points="1020,595 1260,595 1260,360" fill="none" stroke="#1D9E75" stroke-width="1.6"/>
+<polygon points="1260,360 1263.9,368.1 1256.1,368.1" fill="#1D9E75"/>
+<rect x="1252.8" y="586" width="14.4" height="15" fill="#ffffff"/>
+<text x="1260" y="598" font-size="10.5" fill="#1D9E75" text-anchor="middle">C</text>
+<rect x="40" y="540" width="300" height="110" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="190.0" y="560" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Ruta A · se resuelve ahora</text>
+<text x="190.0" y="577" font-size="11" fill="#5F5E5A" text-anchor="middle">respuesta con el dato exacto: cargo,</text>
+<text x="190.0" y="591" font-size="11" fill="#5F5E5A" text-anchor="middle">comercio, fecha local, estado, motivo</text>
+<text x="190.0" y="605" font-size="11" fill="#5F5E5A" text-anchor="middle">&#x27;¿quedó resuelto?&#x27; → sí: cierre</text>
+<text x="190.0" y="619" font-size="11" fill="#5F5E5A" text-anchor="middle">no → pasa a B</text>
+<polyline points="720,570 340,570" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="340,570 348.1,566.1 348.1,573.9" fill="#5F5E5A"/>
+<rect x="522.8" y="561.0" width="14.4" height="15" fill="#ffffff"/>
+<text x="530.0" y="573.0" font-size="10.5" fill="#5F5E5A" text-anchor="middle">A</text>
+<rect x="380" y="540" width="300" height="110" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="530.0" y="560" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Ruta B · caso con promesa</text>
+<text x="530.0" y="577" font-size="11" fill="#5F5E5A" text-anchor="middle">expediente completo y verificado</text>
+<text x="530.0" y="591" font-size="11" fill="#5F5E5A" text-anchor="middle">número de caso + fecha (90% ≤ 28 días)</text>
+<text x="530.0" y="605" font-size="11" fill="#5F5E5A" text-anchor="middle">primera respuesta en segundos</text>
+<text x="530.0" y="619" font-size="11" fill="#5F5E5A" text-anchor="middle">el cliente ve y confirma el expediente</text>
+<polyline points="720,620 680,620" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="680,620 688.1,616.1 688.1,623.9" fill="#5F5E5A"/>
+<rect x="692.8" y="611.0" width="14.4" height="15" fill="#ffffff"/>
+<text x="700.0" y="623.0" font-size="10.5" fill="#5F5E5A" text-anchor="middle">B</text>
+<polyline points="120,650 120,680 420,680 420,650" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="420,650 423.9,658.1 416.1,658.1" fill="#5F5E5A"/>
+<rect x="361.6" y="671" width="116.80000000000001" height="15" fill="#ffffff"/>
+<text x="420" y="683" font-size="10.5" fill="#5F5E5A" text-anchor="middle">no quedó resuelto</text>
+<rect x="40" y="730" width="300" height="100" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="190.0" y="750" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">8 · LLM redacta (o plantilla)</text>
+<text x="190.0" y="767" font-size="11" fill="#993C1D" text-anchor="middle">tono del país (vos/tú), portugués</text>
+<text x="190.0" y="781" font-size="11" fill="#993C1D" text-anchor="middle">solo con datos ya verificados</text>
+<text x="190.0" y="795" font-size="11" fill="#993C1D" text-anchor="middle">~60% de los turnos van por plantilla</text>
+<polyline points="260,650 260,730" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="260,730 256.1,721.9 263.9,721.9" fill="#D85A30"/>
+<rect x="380" y="730" width="300" height="100" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="530.0" y="750" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">9 · Acciones con verificación</text>
+<text x="530.0" y="767" font-size="11" fill="#534AB7" text-anchor="middle">abrir caso → confirmar que existe</text>
+<text x="530.0" y="781" font-size="11" fill="#534AB7" text-anchor="middle">bloquear tarjeta → solo con &#x27;sí&#x27; explícito</text>
+<text x="530.0" y="795" font-size="11" fill="#534AB7" text-anchor="middle">→ verificar en el core antes de contarlo</text>
+<polyline points="600,650 600,730" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="600,730 596.1,721.9 603.9,721.9" fill="#534AB7"/>
+<rect x="720" y="730" width="300" height="100" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<text x="870.0" y="750" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">10 · Reloj de promesas</text>
+<text x="870.0" y="767" font-size="11" fill="#534AB7" text-anchor="middle">24 h sin asignar → alerta al supervisor</text>
+<text x="870.0" y="781" font-size="11" fill="#534AB7" text-anchor="middle">80% del plazo → aviso al cliente</text>
+<text x="870.0" y="795" font-size="11" fill="#534AB7" text-anchor="middle">vencido → escala solo</text>
+<polyline points="680,780 720,780" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="720,780 711.9,783.9 711.9,776.1" fill="#534AB7"/>
+<rect x="1060" y="730" width="400" height="100" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.2"/>
+<text x="1260.0" y="750" font-size="14" font-weight="bold" fill="#04342C" text-anchor="middle">11 · Cierre con segunda opinión</text>
+<text x="1260.0" y="767" font-size="11" fill="#0F6E56" text-anchor="middle">el humano resuelve → el sistema avisa al cliente</text>
+<text x="1260.0" y="781" font-size="11" fill="#0F6E56" text-anchor="middle">&#x27;¿quedó conforme?&#x27; → no: reabre con prioridad</text>
+<text x="1260.0" y="795" font-size="11" fill="#0F6E56" text-anchor="middle">todo queda en la traza: regla, modelo, tiempo, costo</text>
+<polyline points="1020,780 1060,780" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="1060,780 1051.9,783.9 1051.9,776.1" fill="#534AB7"/>
+<polyline points="1260,360 1260,730" fill="none" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5 4"/>
+<polygon points="1260,730 1256.1,721.9 1263.9,721.9" fill="#1D9E75"/>
+<rect x="1201.6" y="536.0" width="116.80000000000001" height="15" fill="#ffffff"/>
+<text x="1260.0" y="548.0" font-size="10.5" fill="#1D9E75" text-anchor="middle">resolución humana</text>
+<text x="30" y="880" font-size="11.5" fill="#5F5E5A" text-anchor="start">Ejemplo (Lucía, ES): &#x27;me cobraron 450 el 12 de junio y no fui yo&#x27; → clasificador: Queja / cargo no reconocido / sin urgencia (0,93) → LLM extrae {450, 2026-06-12}</text>
+<text x="30" y="898" font-size="11.5" fill="#5F5E5A" text-anchor="start">→ gateway encuentra el cargo en su tarjeta 4821, aprobado, comercio &#x27;Super Ahorro&#x27;, riesgo bajo → reglas: no hay criterio C; la evidencia explica el cargo → ruta A: se le muestra el detalle;</text>
+<text x="30" y="916" font-size="11.5" fill="#5F5E5A" text-anchor="start">&#x27;ah sí, fue en el supermercado&#x27; → cierre. Si dice &#x27;no fui yo&#x27; → ruta B: caso con número y fecha; si el score fuera &gt; 30 → ruta C: ofrece bloqueo con confirmación y va a Fraudes.</text>
+<text x="30" y="950" font-size="11.5" fill="#5F5E5A" text-anchor="start">Ejemplo (João, PT): &#x27;não reconheço uma compra&#x27; → mismo flujo; si necesita humano, se enruta a uno de los 7 agentes de Quejas que hablan portugués; la respuesta se redacta en portugués.</text>
+<text x="30" y="984" font-size="11.5" fill="#993C1D" text-anchor="start">Modo degradado: si el LLM no responde en 8 s, el paso 8 usa plantillas y botones; los pasos 5, 6, 7, 9 y 10 no dependen del modelo.</text>
+</svg>

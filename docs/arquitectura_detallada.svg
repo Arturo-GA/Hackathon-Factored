@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1040" viewBox="0 0 1500 1040" font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1500" height="1040" fill="#ffffff"/>
+<text x="30" y="34" font-size="19" fill="#2C2C2A" text-anchor="start" font-weight="bold">Expediente Vivo · Arquitectura detallada (los números siguen el camino de una queja)</text>
+<rect x="30" y="55" width="1440" height="110" rx="8" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="40" y="71" font-size="11" font-weight="bold" fill="#888780">CANALES  ·  quién usa el sistema</text>
+<rect x="50" y="80" width="250" height="70" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<circle cx="64" cy="94" r="10" fill="#888780"/><text x="64" y="98" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+<text x="175.0" y="100" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Cliente · chat</text>
+<text x="175.0" y="117" font-size="11" fill="#5F5E5A" text-anchor="middle">app / WhatsApp / web (simulados)</text>
+<text x="175.0" y="131" font-size="11" fill="#5F5E5A" text-anchor="middle">español y portugués · botones y texto libre</text>
+<rect x="330" y="80" width="250" height="70" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="455.0" y="100" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Modo juez</text>
+<text x="455.0" y="117" font-size="11" fill="#5F5E5A" text-anchor="middle">6 clientes preparados · crear cliente</text>
+<text x="455.0" y="131" font-size="11" fill="#5F5E5A" text-anchor="middle">interruptores de falla · reiniciar demo</text>
+<rect x="610" y="80" width="250" height="70" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.2"/>
+<circle cx="624" cy="94" r="10" fill="#1D9E75"/><text x="624" y="98" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">10</text>
+<text x="735.0" y="100" font-size="14" font-weight="bold" fill="#04342C" text-anchor="middle">Pantalla del agente humano</text>
+<text x="735.0" y="117" font-size="11" fill="#0F6E56" text-anchor="middle">cola por ruta e idioma · expediente</text>
+<text x="735.0" y="131" font-size="11" fill="#0F6E56" text-anchor="middle">tomar · resolver · devolver</text>
+<rect x="890" y="80" width="250" height="70" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="1015.0" y="100" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Tablero del banco</text>
+<text x="1015.0" y="117" font-size="11" fill="#5F5E5A" text-anchor="middle">rutas, promesas en riesgo, métricas</text>
+<text x="1015.0" y="131" font-size="11" fill="#5F5E5A" text-anchor="middle">por tipo, canal, idioma y país</text>
+<rect x="1170" y="80" width="280" height="70" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="1310.0" y="100" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Notificaciones (simuladas)</text>
+<text x="1310.0" y="117" font-size="11" fill="#5F5E5A" text-anchor="middle">push / correo por consumo y por caso</text>
+<text x="1310.0" y="131" font-size="11" fill="#5F5E5A" text-anchor="middle">botón: &#x27;no reconozco este consumo&#x27;</text>
+<rect x="30" y="185" width="1440" height="95" rx="8" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="40" y="201" font-size="11" font-weight="bold" fill="#888780">API  ·  FastAPI en AWS App Runner (o Lambda)</text>
+<rect x="50" y="210" width="330" height="55" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<circle cx="64" cy="224" r="10" fill="#888780"/><text x="64" y="228" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+<text x="215.0" y="230" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Sesión y autenticación de prueba</text>
+<text x="215.0" y="247" font-size="11" fill="#5F5E5A" text-anchor="middle">documento + código de app → sesión 15 min</text>
+<text x="215.0" y="261" font-size="11" fill="#5F5E5A" text-anchor="middle">sin sesión válida no se muestra nada</text>
+<rect x="410" y="210" width="330" height="55" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="575.0" y="230" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Endpoint /chat</text>
+<text x="575.0" y="247" font-size="11" fill="#5F5E5A" text-anchor="middle">recibe el turno, devuelve respuesta + expediente</text>
+<text x="575.0" y="261" font-size="11" fill="#5F5E5A" text-anchor="middle">límite de mensajes por sesión</text>
+<rect x="770" y="210" width="330" height="55" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<circle cx="784" cy="224" r="10" fill="#888780"/><text x="784" y="228" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">9</text>
+<text x="935.0" y="230" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Endpoint /tick (reloj)</text>
+<text x="935.0" y="247" font-size="11" fill="#5F5E5A" text-anchor="middle">EventBridge cada 15 min (acelerable en demo)</text>
+<text x="935.0" y="261" font-size="11" fill="#5F5E5A" text-anchor="middle">alertas 24 h · 80% SLA · vencido · 2ª opinión</text>
+<rect x="1130" y="210" width="320" height="55" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="1290.0" y="230" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Trazas y auditoría</text>
+<text x="1290.0" y="247" font-size="11" fill="#5F5E5A" text-anchor="middle">cada regla, herramienta y consulta al modelo</text>
+<text x="1290.0" y="261" font-size="11" fill="#5F5E5A" text-anchor="middle">tiempo, costo, versión → CloudWatch + S3</text>
+<rect x="30" y="300" width="1440" height="130" rx="8" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="40" y="316" font-size="11" font-weight="bold" fill="#534AB7">ORQUESTADOR  ·  código Python: máquina de estados; el modelo nunca decide</text>
+<rect x="50" y="330" width="200" height="80" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="64" cy="344" r="10" fill="#534AB7"/><text x="64" y="348" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+<text x="150.0" y="350" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Identificar</text>
+<text x="150.0" y="367" font-size="11" fill="#534AB7" text-anchor="middle">carga perfil del cliente</text>
+<text x="150.0" y="381" font-size="11" fill="#534AB7" text-anchor="middle">(sin datos personales)</text>
+<rect x="280" y="330" width="200" height="80" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="294" cy="344" r="10" fill="#534AB7"/><text x="294" y="348" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+<text x="380.0" y="350" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Entender</text>
+<text x="380.0" y="367" font-size="11" fill="#534AB7" text-anchor="middle">triaje del motivo</text>
+<text x="380.0" y="381" font-size="11" fill="#534AB7" text-anchor="middle">→ tipo de queja → urgencia</text>
+<rect x="510" y="330" width="200" height="80" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="524" cy="344" r="10" fill="#534AB7"/><text x="524" y="348" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+<text x="610.0" y="350" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Verificar</text>
+<text x="610.0" y="367" font-size="11" fill="#534AB7" text-anchor="middle">pide solo lo obligatorio</text>
+<text x="610.0" y="381" font-size="11" fill="#534AB7" text-anchor="middle">busca el cargo · ¿es suyo?</text>
+<rect x="740" y="330" width="200" height="80" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="754" cy="344" r="10" fill="#534AB7"/><text x="754" y="348" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">6</text>
+<text x="840.0" y="350" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Decidir</text>
+<text x="840.0" y="367" font-size="11" fill="#534AB7" text-anchor="middle">reglas YAML → ruta A / B / C</text>
+<text x="840.0" y="381" font-size="11" fill="#534AB7" text-anchor="middle">registra por qué</text>
+<rect x="970" y="330" width="200" height="80" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="984" cy="344" r="10" fill="#534AB7"/><text x="984" y="348" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">7</text>
+<text x="1070.0" y="350" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Actuar</text>
+<text x="1070.0" y="367" font-size="11" fill="#534AB7" text-anchor="middle">responder · abrir caso</text>
+<text x="1070.0" y="381" font-size="11" fill="#534AB7" text-anchor="middle">bloquear (con confirmación)</text>
+<rect x="1200" y="330" width="250" height="80" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="1214" cy="344" r="10" fill="#534AB7"/><text x="1214" y="348" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">8</text>
+<text x="1325.0" y="350" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Seguir</text>
+<text x="1325.0" y="367" font-size="11" fill="#534AB7" text-anchor="middle">promesa con fecha · reloj</text>
+<text x="1325.0" y="381" font-size="11" fill="#534AB7" text-anchor="middle">segunda opinión al cerrar</text>
+<polyline points="250,370 280,370" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="280,370 271.9,373.9 271.9,366.1" fill="#534AB7"/>
+<polyline points="480,370 510,370" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="510,370 501.9,373.9 501.9,366.1" fill="#534AB7"/>
+<polyline points="710,370 740,370" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="740,370 731.9,373.9 731.9,366.1" fill="#534AB7"/>
+<polyline points="940,370 970,370" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="970,370 961.9,373.9 961.9,366.1" fill="#534AB7"/>
+<polyline points="1170,370 1200,370" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="1200,370 1191.9,373.9 1191.9,366.1" fill="#534AB7"/>
+<rect x="30" y="450" width="700" height="130" rx="8" fill="none" stroke="#D85A30" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="40" y="466" font-size="11" font-weight="bold" fill="#D85A30">MODELOS  ·  entienden y redactan; sus salidas son datos, no órdenes</text>
+<rect x="50" y="480" width="320" height="85" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<circle cx="64" cy="494" r="10" fill="#D85A30"/><text x="64" y="498" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+<text x="210.0" y="500" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">Clasificador local (data scientist)</text>
+<text x="210.0" y="517" font-size="11" fill="#993C1D" text-anchor="middle">embeddings multilingües + regresión logística</text>
+<text x="210.0" y="531" font-size="11" fill="#993C1D" text-anchor="middle">motivo (6+) · tipo de queja (5) · urgencia</text>
+<text x="210.0" y="545" font-size="11" fill="#993C1D" text-anchor="middle">50 ms · costo 0 · devuelve probabilidad</text>
+<rect x="400" y="480" width="310" height="85" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<circle cx="414" cy="494" r="10" fill="#D85A30"/><text x="414" y="498" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+<text x="555.0" y="500" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">LLM · Claude Opus 5 (Bedrock)</text>
+<text x="555.0" y="517" font-size="11" fill="#993C1D" text-anchor="middle">extrae monto, fecha, comercio (salida estructurada)</text>
+<text x="555.0" y="531" font-size="11" fill="#993C1D" text-anchor="middle">hace UNA pregunta si la confianza es media</text>
+<text x="555.0" y="545" font-size="11" fill="#993C1D" text-anchor="middle">redacta en ES/PT con el tono del país · resume</text>
+<polyline points="380,340 210,480" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="210,480 213.8,471.8 218.7,477.9" fill="#D85A30"/>
+<rect x="236.6" y="401.0" width="116.80000000000001" height="15" fill="#ffffff"/>
+<text x="295.0" y="413.0" font-size="10.5" fill="#D85A30" text-anchor="middle">texto del cliente</text>
+<polyline points="400,340 555,480" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="555,480 546.4,477.5 551.6,471.7" fill="#D85A30"/>
+<rect x="415.9" y="401.0" width="123.2" height="15" fill="#ffffff"/>
+<text x="477.5" y="413.0" font-size="10.5" fill="#D85A30" text-anchor="middle">solo si hace falta</text>
+<polyline points="1070,410 1070,445 720,445 720,522 712,522" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="712,522 720.1,518.1 720.1,525.9" fill="#D85A30"/>
+<rect x="658.4" y="436" width="123.2" height="15" fill="#ffffff"/>
+<text x="720" y="448" font-size="10.5" fill="#D85A30" text-anchor="middle">redactar respuesta</text>
+<rect x="760" y="450" width="710" height="130" rx="8" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="770" y="466" font-size="11" font-weight="bold" fill="#534AB7">GATEWAY DE HERRAMIENTAS  ·  único acceso a datos y acciones</text>
+<rect x="780" y="480" width="330" height="85" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.2"/>
+<circle cx="794" cy="494" r="10" fill="#534AB7"/><text x="794" y="498" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+<text x="945.0" y="500" font-size="14" font-weight="bold" fill="#26215C" text-anchor="middle">Gateway</text>
+<text x="945.0" y="517" font-size="11" fill="#534AB7" text-anchor="middle">alcance = solo el cliente autenticado</text>
+<text x="945.0" y="531" font-size="11" fill="#534AB7" text-anchor="middle">sin nombres, documentos ni contactos</text>
+<text x="945.0" y="545" font-size="11" fill="#534AB7" text-anchor="middle">cada llamada queda registrada</text>
+<rect x="1130" y="480" width="320" height="85" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="1290.0" y="500" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Herramientas (solo lectura + 3 acciones)</text>
+<text x="1290.0" y="517" font-size="11" fill="#5F5E5A" text-anchor="middle">buscar cargos · tarjetas · perfil · reclamos</text>
+<text x="1290.0" y="531" font-size="11" fill="#5F5E5A" text-anchor="middle">abrir/actualizar caso · bloquear tarjeta</text>
+<text x="1290.0" y="545" font-size="11" fill="#5F5E5A" text-anchor="middle">enrutar a cola de agentes · tarifas</text>
+<polyline points="610,410 610,440 945,440 945,480" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="945,480 941.1,471.9 948.9,471.9" fill="#534AB7"/>
+<rect x="883.4" y="431" width="123.2" height="15" fill="#ffffff"/>
+<text x="945" y="443" font-size="10.5" fill="#534AB7" text-anchor="middle">consultar / actuar</text>
+<polyline points="1110,522 1130,522" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="1130,522 1121.9,525.9 1121.9,518.1" fill="#534AB7"/>
+<rect x="30" y="600" width="1440" height="120" rx="8" fill="none" stroke="#378ADD" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="40" y="616" font-size="11" font-weight="bold" fill="#378ADD">DATOS Y SERVICIOS  ·  AWS</text>
+<rect x="50" y="628" width="260" height="78" rx="6" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+<text x="180.0" y="648" font-size="14" font-weight="bold" fill="#042C53" text-anchor="middle">Gold en S3 (Parquet + DuckDB)</text>
+<text x="180.0" y="665" font-size="11" fill="#185FA5" text-anchor="middle">customer_profile · transactions_enriched</text>
+<text x="180.0" y="679" font-size="11" fill="#185FA5" text-anchor="middle">customer_cards · complaints_baseline</text>
+<text x="180.0" y="693" font-size="11" fill="#185FA5" text-anchor="middle">agents_routing · tarifas sintéticas</text>
+<rect x="340" y="628" width="260" height="78" rx="6" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+<text x="470.0" y="648" font-size="14" font-weight="bold" fill="#042C53" text-anchor="middle">Servicio de casos · DynamoDB</text>
+<text x="470.0" y="665" font-size="11" fill="#185FA5" text-anchor="middle">expedientes, estados, promesas, reloj</text>
+<text x="470.0" y="679" font-size="11" fill="#185FA5" text-anchor="middle">clientes sintéticos de la demo</text>
+<text x="470.0" y="693" font-size="11" fill="#185FA5" text-anchor="middle">nunca escribe en las tablas gold</text>
+<rect x="630" y="628" width="260" height="78" rx="6" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+<text x="760.0" y="648" font-size="14" font-weight="bold" fill="#042C53" text-anchor="middle">Core bancario simulado</text>
+<text x="760.0" y="665" font-size="11" fill="#185FA5" text-anchor="middle">bloqueo de tarjeta con verificación</text>
+<text x="760.0" y="679" font-size="11" fill="#185FA5" text-anchor="middle">devuelve resultado real o error</text>
+<text x="760.0" y="693" font-size="11" fill="#185FA5" text-anchor="middle">sin dinero real</text>
+<rect x="920" y="628" width="260" height="78" rx="6" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+<text x="1050.0" y="648" font-size="14" font-weight="bold" fill="#042C53" text-anchor="middle">Colas de agentes</text>
+<text x="1050.0" y="665" font-size="11" fill="#185FA5" text-anchor="middle">Quejas y Reclamos (64) · Fraudes (96)</text>
+<text x="1050.0" y="679" font-size="11" fill="#185FA5" text-anchor="middle">Soporte Técnico (89) · Ventas (74)</text>
+<text x="1050.0" y="693" font-size="11" fill="#185FA5" text-anchor="middle">Retención (85) · portugués (7 en Quejas)</text>
+<rect x="1210" y="628" width="240" height="78" rx="6" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+<text x="1330.0" y="648" font-size="14" font-weight="bold" fill="#042C53" text-anchor="middle">Bedrock · Secrets · CloudWatch</text>
+<text x="1330.0" y="665" font-size="11" fill="#185FA5" text-anchor="middle">modelo con permisos IAM</text>
+<text x="1330.0" y="679" font-size="11" fill="#185FA5" text-anchor="middle">presupuesto 30 USD con alarma</text>
+<text x="1330.0" y="693" font-size="11" fill="#185FA5" text-anchor="middle">logs y métricas</text>
+<polyline points="1290,565 1290,590 180,590 180,628" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="180,628 176.1,619.9 183.9,619.9" fill="#5F5E5A"/>
+<polyline points="1290,565 1290,590 470,590 470,628" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="470,628 466.1,619.9 473.9,619.9" fill="#5F5E5A"/>
+<polyline points="1290,565 1290,590 760,590 760,628" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="760,628 756.1,619.9 763.9,619.9" fill="#5F5E5A"/>
+<polyline points="1290,565 1290,590 1050,590 1050,628" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="1050,628 1046.1,619.9 1053.9,619.9" fill="#5F5E5A"/>
+<polyline points="1290,565 1330,628" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="1330,628 1322.4,623.3 1329.0,619.1" fill="#5F5E5A"/>
+<rect x="30" y="740" width="700" height="130" rx="8" fill="none" stroke="#5F5E5A" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="40" y="756" font-size="11" font-weight="bold" fill="#5F5E5A">DATOS DE ORIGEN  ·  pipeline ya construido</text>
+<rect x="50" y="768" width="200" height="85" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="150.0" y="788" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">S3 del hackathon</text>
+<text x="150.0" y="805" font-size="11" fill="#5F5E5A" text-anchor="middle">13 tablas CSV diarias</text>
+<text x="150.0" y="819" font-size="11" fill="#5F5E5A" text-anchor="middle">extract incremental</text>
+<rect x="280" y="768" width="200" height="85" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="380.0" y="788" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">bronze → silver → gold</text>
+<text x="380.0" y="805" font-size="11" fill="#5F5E5A" text-anchor="middle">contratos (194 checks)</text>
+<text x="380.0" y="819" font-size="11" fill="#5F5E5A" text-anchor="middle">DuckDB · reproducible</text>
+<rect x="510" y="768" width="200" height="85" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="1.2"/>
+<text x="610.0" y="788" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Copia a S3 (Parquet)</text>
+<text x="610.0" y="805" font-size="11" fill="#5F5E5A" text-anchor="middle">BigQuery queda como respaldo</text>
+<text x="610.0" y="819" font-size="11" fill="#5F5E5A" text-anchor="middle">fixture de actualización</text>
+<polyline points="250,810 280,810" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="280,810 271.9,813.9 271.9,806.1" fill="#5F5E5A"/>
+<polyline points="480,810 510,810" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="510,810 501.9,813.9 501.9,806.1" fill="#5F5E5A"/>
+<polyline points="610,768 610,730 180,730 180,706" fill="none" stroke="#5F5E5A" stroke-width="1.6" stroke-dasharray="5 4"/>
+<polygon points="180,706 183.9,714.1 176.1,714.1" fill="#5F5E5A"/>
+<rect x="760" y="740" width="710" height="130" rx="8" fill="none" stroke="#D85A30" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="770" y="756" font-size="11" font-weight="bold" fill="#D85A30">EVALUACIÓN  ·  offline, reproducible con un comando</text>
+<rect x="780" y="768" width="220" height="85" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="890.0" y="788" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">Conjunto ES/PT (equipo)</text>
+<text x="890.0" y="805" font-size="11" fill="#993C1D" text-anchor="middle">600–1.000 frases etiquetadas</text>
+<text x="890.0" y="819" font-size="11" fill="#993C1D" text-anchor="middle">200+ conversaciones con resultado</text>
+<text x="890.0" y="833" font-size="11" fill="#993C1D" text-anchor="middle">15% adversarias · sintético declarado</text>
+<rect x="1020" y="768" width="210" height="85" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="1125.0" y="788" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">Clasificador vs baselines</text>
+<text x="1125.0" y="805" font-size="11" fill="#993C1D" text-anchor="middle">palabras clave · LLM zero-shot</text>
+<text x="1125.0" y="819" font-size="11" fill="#993C1D" text-anchor="middle">F1 por clase e idioma</text>
+<text x="1125.0" y="833" font-size="11" fill="#993C1D" text-anchor="middle">umbral del score de fraude</text>
+<rect x="1250" y="768" width="200" height="85" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+<text x="1350.0" y="788" font-size="14" font-weight="bold" fill="#4A1B0C" text-anchor="middle">Suite de punta a punta</text>
+<text x="1350.0" y="805" font-size="11" fill="#993C1D" text-anchor="middle">resolución segura · inseguros</text>
+<text x="1350.0" y="819" font-size="11" fill="#993C1D" text-anchor="middle">derivaciones · latencia · costo</text>
+<text x="1350.0" y="833" font-size="11" fill="#993C1D" text-anchor="middle">juez validado con humanos</text>
+<polyline points="1000,810 1020,810" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="1020,810 1011.9,813.9 1011.9,806.1" fill="#D85A30"/>
+<polyline points="1230,810 1250,810" fill="none" stroke="#D85A30" stroke-width="1.6"/>
+<polygon points="1250,810 1241.9,813.9 1241.9,806.1" fill="#D85A30"/>
+<polyline points="175,150 175,210" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="175,210 171.1,201.9 178.9,201.9" fill="#5F5E5A"/>
+<rect x="155.0" y="171.0" width="40.0" height="15" fill="#ffffff"/>
+<text x="175.0" y="183.0" font-size="10.5" fill="#5F5E5A" text-anchor="middle">turno</text>
+<polyline points="455,150 455,210" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="455,210 451.1,201.9 458.9,201.9" fill="#5F5E5A"/>
+<polyline points="735,150 735,210" fill="none" stroke="#1D9E75" stroke-width="1.6"/>
+<polygon points="735,210 731.1,201.9 738.9,201.9" fill="#1D9E75"/>
+<rect x="692.6" y="171.0" width="84.80000000000001" height="15" fill="#ffffff"/>
+<text x="735.0" y="183.0" font-size="10.5" fill="#1D9E75" text-anchor="middle">toma el caso</text>
+<polyline points="1015,150 1015,210" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="1015,210 1011.1,201.9 1018.9,201.9" fill="#5F5E5A"/>
+<polyline points="1310,150 1310,210" fill="none" stroke="#5F5E5A" stroke-width="1.6"/>
+<polygon points="1310,210 1306.1,201.9 1313.9,201.9" fill="#5F5E5A"/>
+<polyline points="575,265 575,300" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="575,300 571.1,291.9 578.9,291.9" fill="#534AB7"/>
+<rect x="539.0" y="273.5" width="72.0" height="15" fill="#ffffff"/>
+<text x="575.0" y="285.5" font-size="10.5" fill="#534AB7" text-anchor="middle">cada turno</text>
+<polyline points="935,265 935,300" fill="none" stroke="#534AB7" stroke-width="1.6"/>
+<polygon points="935,300 931.1,291.9 938.9,291.9" fill="#534AB7"/>
+<rect x="915.0" y="273.5" width="40.0" height="15" fill="#ffffff"/>
+<text x="935.0" y="285.5" font-size="10.5" fill="#534AB7" text-anchor="middle">reloj</text>
+<rect x="30" y="900" width="14" height="14" rx="3" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="50" y="912" font-size="12" fill="#2C2C2A" text-anchor="start">decide (código, auditable)</text>
+<rect x="290" y="900" width="14" height="14" rx="3" fill="#FAECE7" stroke="#D85A30"/>
+<text x="310" y="912" font-size="12" fill="#2C2C2A" text-anchor="start">modelos: entienden y redactan</text>
+<rect x="550" y="900" width="14" height="14" rx="3" fill="#F1EFE8" stroke="#888780"/>
+<text x="570" y="912" font-size="12" fill="#2C2C2A" text-anchor="start">canales, herramientas y datos</text>
+<rect x="810" y="900" width="14" height="14" rx="3" fill="#E6F1FB" stroke="#378ADD"/>
+<text x="830" y="912" font-size="12" fill="#2C2C2A" text-anchor="start">servicios AWS</text>
+<rect x="1070" y="900" width="14" height="14" rx="3" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="1090" y="912" font-size="12" fill="#2C2C2A" text-anchor="start">humano</text>
+<text x="30" y="940" font-size="11.5" fill="#5F5E5A" text-anchor="start">Camino de una queja: 1 el cliente escribe → 2 sesión y perfil → 3 el clasificador dice motivo, tipo y urgencia → 4 el LLM extrae datos o pregunta → 5 el gateway busca el cargo y verifica que sea del cliente →</text>
+<text x="30" y="958" font-size="11.5" fill="#5F5E5A" text-anchor="start">6 las reglas eligen la ruta (A resolver / B caso con promesa / C humano) → 7 se actúa y se verifica en el core → 8 promesa con fecha y reloj → 9 el reloj avisa y escala → 10 el humano recibe el expediente, no un transcript.</text>
+<text x="30" y="990" font-size="11.5" fill="#993C1D" text-anchor="start">Modo degradado: si el modelo no responde, los pasos 2, 5, 6, 7 y 8 siguen funcionando con plantillas y botones; abrir un caso nunca depende del LLM.</text>
+</svg>
