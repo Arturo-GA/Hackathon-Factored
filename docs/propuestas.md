@@ -1,5 +1,7 @@
 # Propuestas de proyecto: chats que atacan los dolores del contact center
 
+> **Histórico (v1.4).** Desde el 28 sep manda el plan v2 del repo del equipo (https://github.com/DDR2AS/factored-hackathon-2026-Datti). Qué cambió y qué sigue igual: [alineacion_v2.md](alineacion_v2.md).
+
 Fecha: 2026-09-26. Basado en docs/hallazgos.md y en una revisión de dolores (analysis: consultas sobre silver).
 
 ## Dolores del contact center (con números)

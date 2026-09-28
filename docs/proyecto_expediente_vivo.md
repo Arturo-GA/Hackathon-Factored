@@ -1,5 +1,7 @@
 # Proyecto: "Expediente vivo" — quejas resueltas o encaminadas en una conversación, con evidencia verificada
 
+> **Histórico (v1.4).** Desde el 28 sep manda el plan v2 del repo del equipo (https://github.com/DDR2AS/factored-hackathon-2026-Datti). Qué cambió y qué sigue igual: [alineacion_v2.md](alineacion_v2.md).
+
 ## El dolor (con la data)
 
 - Queja: 56% no resuelto al primer contacto, 431 s por llamada, 63% queda "pendiente de seguimiento".

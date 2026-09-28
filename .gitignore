@@ -23,3 +23,6 @@ docs/*.json
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Archivos de bloqueo de Word/Office
+~$*

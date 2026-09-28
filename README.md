@@ -6,6 +6,13 @@ Factored AI & Data Hackathon 2026 (sistema de atención al cliente bancario con 
 **Los datos no están en este repo** (acceso restringido a participantes). Aquí va el código para
 descargarlos y procesarlos, los contratos de calidad y los reportes con estadísticas agregadas.
 
+## Estado del proyecto (28 sep 2026)
+
+El proyecto del equipo es **Expediente Vivo v2** y vive en el repo del equipo: https://github.com/DDR2AS/factored-hackathon-2026-Datti (RUNBOOK.md, DECISIONS.md, INTERFACES.md, STATUS.md, plan en `docs/plan/expediente-vivo-v2.html`). Este repo queda como repo personal: pipeline v1.4, análisis de la data y documentos de diseño v1.4.
+
+- [docs/alineacion_v2.md](docs/alineacion_v2.md): qué cambió de v1.4 a v2, quién es dueño de qué, reglas de trabajo del equipo y puntos a aclarar.
+- Históricos v1.4: docs/proyecto_expediente_vivo.md, docs/arquitectura_detallada.md, los diagramas y los .docx de docs/.
+
 ## Documentos
 
 - [docs/tratamiento_datos.md](docs/tratamiento_datos.md): cómo se procesan los datos, capa por capa y tabla por tabla.

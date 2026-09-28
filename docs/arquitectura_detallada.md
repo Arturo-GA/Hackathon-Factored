@@ -1,5 +1,7 @@
 # Expediente Vivo: arquitectura detallada y flujo total
 
+> **Histórico (v1.4).** Desde el 28 sep manda el plan v2 del repo del equipo (https://github.com/DDR2AS/factored-hackathon-2026-Datti). Qué cambió y qué sigue igual: [alineacion_v2.md](alineacion_v2.md).
+
 Material para la reunión de validación del equipo (27 sep). Diagramas: `arquitectura_detallada.png` (componentes) y `flujo_conversacion.png` (qué pasa en cada turno). Detalle completo en `Expediente_Vivo_Propuesta.docx`.
 
 ## 1. La idea en tres frases
